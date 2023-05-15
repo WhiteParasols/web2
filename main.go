@@ -1,9 +1,12 @@
 package main
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/WhiteParasols/web2/myapp"
+)
 
 func main() {
-	http.Handle("/", http.FileServer(http.Dir("public")))
 
-	http.ListenAndServe(":3000", nil)
+	http.ListenAndServe(":3000", myapp.NewHandler())
 }
